@@ -15,6 +15,7 @@ multiverse_repos = ["deb http://us.archive.ubuntu.com/ubuntu/ intrepid multivers
 multiverse_repos.each do |repo|
   execute "add-repo: #{repo}" do
      command %Q(sudo echo "#{repo}" >> /etc/apt/sources.list)
+     not_if %Q(grep "#{repo}" /etc/apt/sources.list)
      action :run
   end
 end
