@@ -7,6 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w(ffmpeg transcoder::gd2 transcoder::gpac transcoder::gpac).each do |r|
+%w(ffmpeg transcoder::gd2 transcoder::gpac transcoder::gpac transcoder::rvideo).each do |r|
   include_recipe r
 end
