@@ -13,8 +13,8 @@ multiverse_repos = ["deb http://us.archive.ubuntu.com/ubuntu/ intrepid multivers
 "deb-src http://us.archive.ubuntu.com/ubuntu/ intrepid-updates multiverse"]
 
 multiverse_repos.each do |repo|
-  execute "add-repo_#{repo}" do
-     command %Q(sudo echo "#{repo}" >> /etc/apt/sources.list')
+  execute "add-repo: #{repo}" do
+     command %Q(sudo echo "#{repo}" >> /etc/apt/sources.list)
      action :run
   end
 end
