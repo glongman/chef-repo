@@ -7,7 +7,5 @@ version          "0.1"
 
 depends "build-essential"
 depends "subversion"
-depends "git-core"
-depends "checkinstall"
 
 recipe "base", "base configuration"

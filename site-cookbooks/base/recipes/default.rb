@@ -15,6 +15,11 @@ end
 
 include_recipe "build-essential"
 include_recipe "subversion"
-include_recipe "git-core"
-include_recipe "checkinstall"
+
+%w(git-core checkinstall).each do |p|
+  package p do
+     action :install
+   end
+end
+
 
