@@ -1,0 +1,14 @@
+= DESCRIPTION:
+
+Install & Configure ffmpeg
+
+= REQUIREMENTS:
+
+Debian or Ubuntu are supported
+
+= ATTRIBUTES: 
+
+= USAGE:
+
+Include the ffmpeg recipe to install ffmpeg
+
