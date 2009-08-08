@@ -53,7 +53,7 @@ bash "install x264" do
     checkinstall --fstrans=no --install=yes --pkgname=x264 --pkgversion '1:0.svn`date +%Y%m%d`-0.0ubuntu1' --default
     ldconfig
     EOH
-  run :yes
+  action :run
 end
 
 bash "install lame" do
@@ -65,7 +65,7 @@ bash "install lame" do
     make
     checkinstall --fstrans=no --install=yes --pkgname=libmp3lame --pkgversion '1:0.svn`date +%Y%m%d`-0.0ubuntu1' --default 
     EOH
-  run :no
+  action :nothing
 end
 
 remote_file "/tmp/lame-3.97.tar.gz" do
