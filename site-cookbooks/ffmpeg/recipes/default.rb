@@ -9,10 +9,18 @@
 
 include_recipe "ffmpeg::dependencies"
 
+# remove any existing tmp files
+directory "/tmp/ffmpeg" do
+  ignore_failure true
+  recursive true
+  action :delete
+end
+
+
 bash "install ffmpeg" do
   cwd '/tmp'
   code <<-EOH
-    svn checkout svn://svn.ffmpeg.org/ffmpeg/trunk ffmpeg 
+    svn checkout -r 19601 svn://svn.ffmpeg.org/ffmpeg/trunk ffmpeg 
     cd ffmpeg
     ./configure --enable-gpl \
         --enable-nonfree \
