@@ -30,7 +30,7 @@ end
 packages = %w(yasm texi2html libfaac-dev libfaad-dev libmp3lame-dev libsdl1.2-dev libtheora-dev libx11-dev libxvidcore4-dev zlib1g-dev libdirac-dev libschroedinger-dev libvorbis-dev)
 
 packages.each do |p|
-  package pkg do
+  package p do
     action :install
   end
 end
