@@ -45,7 +45,8 @@ bash "install ffmpeg" do
         --disable-ffplay \
         --disable-debug \
         --disable-iwmmxt \
-        --disable-network
+        --disable-network \
+        --extra-ldflags='-ldl'
     make
     checkinstall --fstrans=no --install=yes --pkgname=ffmpeg --pkgversion '3:0.svn`date +%Y%m%d`-12ubuntu3' --default
     ldconfig
