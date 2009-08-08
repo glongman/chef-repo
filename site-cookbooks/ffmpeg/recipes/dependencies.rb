@@ -50,10 +50,33 @@ bash "install x264" do
     cd x264 
     ./configure 
     make 
-    sudo checkinstall --fstrans=no --install=yes --pkgname=x264 --pkgversion '1:0.svn`date +%Y%m%d`-0.0ubuntu1' --default
+    checkinstall --fstrans=no --install=yes --pkgname=x264 --pkgversion '1:0.svn`date +%Y%m%d`-0.0ubuntu1' --default
     ldconfig
     EOH
+  run :yes
 end
+
+bash "install lame" do
+  cwd '/tmp'
+  code <<-EOH
+    tar xvf lame-3.97.tar.gz
+    cd lame-3.97
+    ./configure
+    make
+    checkinstall --fstrans=no --install=yes --pkgname=libmp3lame --pkgversion '1:0.svn`date +%Y%m%d`-0.0ubuntu1' --default 
+    EOH
+  run :no
+end
+
+remote_file "/tmp/lame-3.97.tar.gz" do
+  source 'lame-3.97.tar.gz'
+  mode 0755
+  owner 'root'
+  group 'root'
+  notifies :run, resources(:bash => 'install lame'), :immediately
+end
+
+
 
 
 
