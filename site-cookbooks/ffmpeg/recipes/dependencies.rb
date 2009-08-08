@@ -34,3 +34,26 @@ packages.each do |p|
     action :install
   end
 end
+
+# remove any existing tmp files
+%w(/tmp/x264 /tmp/ffmpeg /tmp/opencore-amr).each do |f|
+  file f do
+    ignore_failure true
+    action :delete
+  end
+end
+
+bash "install x264" do
+  cwd '/tmp'
+  code <<-EOH
+    git clone git://git.videolan.org/x264.git 
+    cd x264 
+    ./configure 
+    make 
+    sudo checkinstall --fstrans=no --install=yes --pkgname=x264 --pkgversion '1:0.svn`date +%Y%m%d`-0.0ubuntu1' --default
+    ldconfig
+    EOH
+end
+
+
+
