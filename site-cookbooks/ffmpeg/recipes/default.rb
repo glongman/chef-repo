@@ -31,11 +31,12 @@ bash "install ffmpeg" do
         --enable-libxvid \
         --enable-x11grab \
         --enable-libopencore-amrnb \
-        --enable-version3\
-        --disable-devices\
-        --disable-ffserver\
-        --disable-ffplay\
-        --disable-debug\
+        --enable-version3 \
+        --disable-devices \
+        --disable-ffserver \
+        --disable-ffplay \
+        --disable-debug \
+        --disable-iwmmxt \
         --disable-network
     make
     checkinstall --fstrans=no --install=yes --pkgname=ffmpeg --pkgversion '3:0.svn`date +%Y%m%d`-12ubuntu3' --default

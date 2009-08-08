@@ -37,8 +37,9 @@ end
 
 # remove any existing tmp files
 %w(/tmp/x264 /tmp/lame-3.97 /tmp/opencore-amr).each do |f|
-  file f do
+  directory f do
     ignore_failure true
+    recursive true
     action :delete
   end
 end
