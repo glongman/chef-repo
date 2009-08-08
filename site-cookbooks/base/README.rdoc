@@ -1,8 +1,8 @@
 = DESCRIPTION:
 
-= REQUIREMENTS:
-
-= ATTRIBUTES: 
+We put in here all the recipes needed to put the basic junk on a node
 
 = USAGE:
+
+include_recipe 'base'
 

@@ -1,1 +1,0 @@
-deep_thought "My god, it's full of stars"

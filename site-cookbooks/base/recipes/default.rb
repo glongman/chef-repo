@@ -14,6 +14,7 @@ execute "update apt" do
 end
 
 include_recipe "build-essential"
+include_recipe 'ruby'
 include_recipe "subversion"
 
 %w(git-core checkinstall).each do |p|

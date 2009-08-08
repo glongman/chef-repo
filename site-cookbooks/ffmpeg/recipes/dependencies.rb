@@ -57,6 +57,8 @@ bash "install x264" do
   action :run
 end
 
+# this resource is not executed by default
+# see 'notifies' in the resource called 'remote_file' (below)
 bash "install lame" do
   cwd '/tmp'
   code <<-EOH
@@ -70,7 +72,7 @@ bash "install lame" do
 end
 
 remote_file "/tmp/lame-3.97.tar.gz" do
-  source 'lame-3.97.tar.gz' # file in cookbook
+  source 'lame-3.97.tar.gz' # file in cookbook /files/default dir
   mode 0755
   owner 'root'
   group 'root'

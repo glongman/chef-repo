@@ -5,7 +5,8 @@ description      "Installs/Configures base"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 version          "0.1"
 
-depends "build-essential"
-depends "subversion"
+depends 'build-essential'
+depends 'subversion'
+depends 'ruby'
 
 recipe "base", "base configuration"
