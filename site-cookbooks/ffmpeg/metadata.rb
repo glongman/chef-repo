@@ -6,7 +6,7 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 version          "0.1"
 
 recipe "ffmpeg", "Main ffmpeg configuration"
-recipe "ffmpeg:dependencies", "get/make and install ffmpeg dependencies, codecs, etc"
+recipe "ffmpeg::dependencies", "get/make and install ffmpeg dependencies, codecs, etc"
 
 %w(ubuntu).each do |os|
   supports os

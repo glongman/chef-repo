@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "ffmpeg:dependencies"
+include_recipe "ffmpeg::dependencies"
 
 bash "install ffmpeg" do
   cwd '/tmp'
