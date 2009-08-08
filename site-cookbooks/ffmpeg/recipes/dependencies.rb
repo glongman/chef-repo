@@ -36,7 +36,7 @@ packages.each do |p|
 end
 
 # remove any existing tmp files
-%w(/tmp/x264 /tmp/ffmpeg /tmp/opencore-amr).each do |f|
+%w(/tmp/x264 /tmp/lame-3.97 /tmp/opencore-amr).each do |f|
   file f do
     ignore_failure true
     action :delete
@@ -69,11 +69,24 @@ bash "install lame" do
 end
 
 remote_file "/tmp/lame-3.97.tar.gz" do
-  source 'lame-3.97.tar.gz'
+  source 'lame-3.97.tar.gz' # file in cookbook
   mode 0755
   owner 'root'
   group 'root'
   notifies :run, resources(:bash => 'install lame'), :immediately
+end
+
+bash 'install opencore-amr' do
+  cwd '/tmp'
+  code <<-EOH
+    git clone git://opencore-amr.git.sourceforge.net/gitroot/opencore-amr
+    cd opencore-amr
+    ./configure
+    make
+    checkinstall --fstrans=no --install=yes --pkgname=opencore-amr --default
+    ldconfig
+    EOH
+  action :run
 end
 
 
