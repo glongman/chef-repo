@@ -27,7 +27,7 @@ execute "update apt" do
   action :run
 end
 
-packages = %w(yasm libgsm1-dev texi2html libfaac-dev libfaad-dev libmp3lame-dev libsdl1.2-dev libtheora-dev libx11-dev libxvidcore4-dev zlib1g-dev libdirac-dev libschroedinger-dev libvorbis-dev)
+packages = %w(yasm libgsm1-dev texi2html libfaac-dev libavcodec51 libfaad-dev libmp3lame-dev libsdl1.2-dev libtheora-dev libx11-dev libxvidcore4-dev zlib1g-dev libdirac-dev libschroedinger-dev libvorbis-dev)
 
 packages.each do |p|
   package p do
@@ -84,7 +84,7 @@ bash 'install opencore-amr' do
     cd opencore-amr
     ./configure
     make
-    checkinstall --fstrans=no --install=yes --pkgname=opencore-amr --default
+    checkinstall --fstrans=no --install=yes --pkgversion '1:0.svn`date +%Y%m%d`-0.0ubuntu1' --pkgname=opencore-amr --default
     ldconfig
     EOH
   action :run
